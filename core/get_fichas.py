@@ -1,6 +1,6 @@
 from requests import session
 from bs4 import BeautifulSoup
-from .utils import save_file, solve_dir, solve_path
+from .utils import save_file
 from .exceptions import FichaNotFound
 
 class FichaDownload:
