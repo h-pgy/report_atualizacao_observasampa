@@ -33,6 +33,18 @@ def list_files(folder, extension=None):
     
     return files
 
+
+def load_file_generator(folder, extension=None, read_type='r'):
+
+    read_modes = ('r', 'rb')
+    if read_type not in read_modes:
+        raise ValueError(f'Read type must be in {read_modes}')
+
+    files = list_files(folder, extension)
+    for file in files:
+        with open(file, read_type) as f:
+            yield f.read()
+
 def delete_existing_files(folder, extension=None):
 
     folder = solve_dir(folder)
