@@ -1,5 +1,5 @@
 import os
-
+import json
 
 def solve_dir(folder):
 
@@ -43,3 +43,23 @@ def delete_existing_files(folder, extension=None):
     for file in files:
         os.remove(file)
         print(f'File {file} deleted.')
+
+
+def save_file(obj, file_name, save_dir, callback=None):
+
+    file_name = solve_path(file_name, parent=save_dir)
+
+    if type(callback) is function:
+        return callback(file_name, obj)
+
+    if callback is None or callback == 'text':
+        with open(file_name, 'w') as f:
+            f.write(obj)
+    elif callback == 'json':
+        with open(file_name, 'w') as f:
+            json.dump(obj, f)
+    elif callback == 'bin':
+        with open(file_name, 'wb') as f:
+            f.write(obj)
+    
+    return file_name
