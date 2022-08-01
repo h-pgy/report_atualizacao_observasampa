@@ -43,7 +43,8 @@ def load_file_generator(folder, extension=None, read_type='r'):
     files = list_files(folder, extension)
     for file in files:
         with open(file, read_type) as f:
-            yield f.read()
+            yield {'file' : file, 
+                'content': f.read()}
 
 def delete_existing_files(folder, extension=None):
 
