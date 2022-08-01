@@ -49,7 +49,7 @@ def save_file(obj, file_name, save_dir, callback=None):
 
     file_name = solve_path(file_name, parent=save_dir)
 
-    if type(callback) is function:
+    if callable(callback):
         return callback(file_name, obj)
 
     if callback is None or callback == 'text':
