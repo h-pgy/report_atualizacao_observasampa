@@ -1,7 +1,6 @@
 #project-specifc ignores
 
-original_data/
-generated_data/
+data/
 config.py
 prototipo.ipynb
 
