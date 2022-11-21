@@ -1,7 +1,8 @@
 #project-specifc ignores
 
-original_data/
-generated_data/
+data/
+config.py
+prototipo.ipynb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
