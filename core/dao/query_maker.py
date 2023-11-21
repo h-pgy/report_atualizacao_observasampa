@@ -1,12 +1,12 @@
 import pandas as pd
 import psycopg2
-from config import SQLALCHEMY_DATABASE_URL
+from config import CONNECTION_DATA
 
 def conn_tear_down(query_func):
     
     def func(*args, **kwargs):
         
-        conn = psycopg2.connect(SQLALCHEMY_DATABASE_URL)
+        conn = psycopg2.connect(**CONNECTION_DATA)
         cursor = conn.cursor()
         try:
             result = query_func(*args, cursor = cursor, **kwargs)

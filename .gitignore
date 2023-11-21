@@ -1,7 +1,6 @@
 #project-specifc ignores
 
 data/
-config.py
 prototipo.ipynb
 
 # Byte-compiled / optimized / DLL files
